@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO.Ports;
+
+namespace ConsoleApplication2
+{
+    class Program
+    {
+        static SerialPort serial = new SerialPort();
+        static void Main(string[] args)
+        {
+            serial.PortName = "COM4";
+            serial.Open();
+            while (true)
+            {
+                System.Console.WriteLine(serial.ReadLine());
+                string cmdtext;
+                cmdtext = "E:\\test.exe ";
+                cmdtext = cmdtext + serial.ReadLine();
+                string commandText = @"/c" + cmdtext;
+                System.Diagnostics.Process.Start("CMD.exe", commandText);
+            }
+        }
+    }
+}
