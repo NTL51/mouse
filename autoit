@@ -1,0 +1,11 @@
+$a1=8
+$a2=120
+$a = @DesktopHeight
+$b = @DesktopWidth
+$b1= $a / 31
+$b2= $b / 25
+$y = $CmdLine[1] + $a1
+$z = $CmdLine[2] - $a2
+$y = $y * $b1
+$z = $z * $b2
+MouseMove($z,$y)
